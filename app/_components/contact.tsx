@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { CONTACT } from "../_content/site";
 
 type ContactContextValue = { openContact: () => void };
 
@@ -42,7 +43,9 @@ export function ContactProvider({ children }: { children: React.ReactNode }) {
           <div className="modal-backdrop" onClick={closeContact} />
           <div className="modal-card" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
             <button type="button" className="modal-close" onClick={closeContact} aria-label="Fechar">
-              ✕
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 6l12 12M18 6 6 18" />
+              </svg>
             </button>
             <h3 id="contactTitle" className="modal-title gold-text">
               Contato
@@ -53,7 +56,7 @@ export function ContactProvider({ children }: { children: React.ReactNode }) {
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" d="M3 7l9 6 9-6M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />
                 </svg>
-                contato@soraiaconcierge.com.br
+                {CONTACT.email}
               </p>
               <p className="modal-contact">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -64,9 +67,9 @@ export function ContactProvider({ children }: { children: React.ReactNode }) {
                     transform="translate(3 1)"
                   />
                 </svg>
-                +55 (00) 00000-0000
+                {CONTACT.phone}
               </p>
-              <p className="modal-hours">Segunda a sexta · 9h às 18h</p>
+              <p className="modal-hours">{CONTACT.hours}</p>
               <Link href="/atuacao" className="btn btn-outline" onClick={closeContact}>
                 Ver áreas de atuação
               </Link>

@@ -2,13 +2,14 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { CONTACT } from "../_content/site";
 
 type Message = { id: number; who: "bot" | "user"; content: React.ReactNode };
 
 const G = ({ children }: { children: React.ReactNode }) => <b className="gold-inline">{children}</b>;
 
 const WELCOME =
-  "Olá! Sou a assistente virtual da Soraia. Posso explicar as áreas de atuação, apresentar os serviços e ajudar você a encontrar a informação que procura. ✨";
+  "Olá! Sou a assistente virtual da Soraia. Posso explicar as áreas de atuação, apresentar os serviços e ajudar você a encontrar a informação que procura.";
 
 const FAQ: { q: string; a: React.ReactNode }[] = [
   {
@@ -49,8 +50,8 @@ const FAQ: { q: string; a: React.ReactNode }[] = [
     q: "Falar com a equipe",
     a: (
       <>
-        Um prazer! Você pode falar com a Soraia pelo e-mail <G>contato@soraiaconcierge.com.br</G> ou pelo WhatsApp{" "}
-        <G>+55 (00) 00000-0000</G>. Também é possível usar o botão “CONTATO” no topo do site.
+        Um prazer! Você pode falar com a Soraia pelo e-mail <G>{CONTACT.email}</G> ou pelo WhatsApp{" "}
+        <G>{CONTACT.phone}</G>. Também é possível usar o botão “CONTATO” no topo do site.
       </>
     ),
   },
@@ -125,7 +126,9 @@ export function Chat() {
             <span className="chat-sub">Assistente por IA · on-line</span>
           </div>
           <button type="button" className="chat-close" onClick={toggleChat} aria-label="Fechar chat">
-            ✕
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 6l12 12M18 6 6 18" />
+            </svg>
           </button>
         </div>
 

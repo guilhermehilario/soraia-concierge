@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { ContactButton } from "../_components/contact";
-import { PageIntro } from "../_components/page-parts";
+import { PageIntro } from "../_components/page-intro";
 
 export const metadata: Metadata = { title: "Parcerias" };
 
@@ -39,16 +39,7 @@ export default function PartnersPage() {
     <div className="page-shell">
       <PageIntro title="Parcerias" subtitle="Conexões e parcerias profissionais." />
 
-      <p
-        style={{
-          maxWidth: "42rem",
-          margin: "0 0 2.5rem",
-          fontSize: "0.95rem",
-          fontWeight: 300,
-          lineHeight: 1.8,
-          color: "rgba(255,255,255,0.72)",
-        }}
-      >
+      <p className="page-lead">
         A SORAIA acredita que grandes entregas nascem de grandes alianças. Este espaço é dedicado às
         empresas, organizações e profissionais que caminham como parceiros em cada projeto.
       </p>
@@ -90,7 +81,7 @@ export default function PartnersPage() {
       <div className="partner-cta">
         <h3>Quer fazer parte?</h3>
         <p>Trocamos conexões com profissionais e empresas que valorizam excelência e ética.</p>
-        <div className="btn-row" style={{ justifyContent: "center" }}>
+        <div className="btn-row center">
           <ContactButton className="btn btn-gold">Entrar em contato</ContactButton>
         </div>
       </div>

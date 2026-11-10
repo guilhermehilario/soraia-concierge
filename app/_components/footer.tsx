@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { NAV } from "../_content/site";
 import { ContactButton } from "./contact";
 
 export function Footer() {
@@ -20,10 +21,11 @@ export function Footer() {
         </Link>
 
         <nav className="footer-nav" aria-label="Rodapé">
-          <Link href="/">Início</Link>
-          <Link href="/sobre">Sobre</Link>
-          <Link href="/atuacao">Serviços</Link>
-          <Link href="/parcerias">Parcerias</Link>
+          {NAV.map((item) => (
+            <Link key={item.href} href={item.href}>
+              {item.label}
+            </Link>
+          ))}
           <ContactButton>Contato</ContactButton>
         </nav>
 

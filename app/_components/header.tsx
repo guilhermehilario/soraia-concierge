@@ -4,14 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { NAV } from "../_content/site";
 import { ContactButton } from "./contact";
-
-const NAV = [
-  { href: "/", label: "Início" },
-  { href: "/sobre", label: "Sobre" },
-  { href: "/atuacao", label: "Serviços" },
-  { href: "/parcerias", label: "Parcerias" },
-];
 
 function isActive(pathname: string, href: string) {
   return href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);

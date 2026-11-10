@@ -1,6 +1,7 @@
+import { GoldList, GoldListItem } from "../_components/gold-list";
+
 export type AboutTopic = {
   slug: string;
-  number: string;
   title: string;
   summary: string;
   icon: React.ReactNode;
@@ -10,11 +11,15 @@ export type AboutTopic = {
 export const ABOUT_TOPICS = [
   {
     slug: "o-que-e-uma-concierge",
-    number: "01",
     title: "O que é uma Concierge?",
     summary: "Entenda a origem e a essência dessa profissão de alto nível.",
     icon: (
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11Zm0 2.5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0-7.5 1.2 2.8L12 5 10.8 4.3 12 1.5Z" />
+      // Campainha de balcão: o símbolo do concierge de hotel.
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M4 16.5a8 8 0 0 1 16 0M2.5 19h19M12 8.5V6.5M10.25 5.5h3.5M7.9 13.7a4.6 4.6 0 0 1 2.4-2.5"
+      />
     ),
     content: (
       <>
@@ -40,11 +45,15 @@ export const ABOUT_TOPICS = [
   },
   {
     slug: "o-que-eu-faco",
-    number: "02",
     title: "O que eu faço?",
     summary: "A atuação prática e o dia a dia da sua Concierge.",
     icon: (
-      <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h8m-8 4h5m5-13H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7l-4-4Zm0 0v4h4" />
+      // Percurso conduzido do início à entrega.
+      <>
+        <circle cx="5" cy="18" r="2" />
+        <circle cx="19" cy="4" r="2" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M7 18h6.5a3.5 3.5 0 0 0 0-7h-3a3.5 3.5 0 0 1 0-7H17" />
+      </>
     ),
     content: (
       <>
@@ -52,7 +61,7 @@ export const ABOUT_TOPICS = [
           Na prática, atuo como <strong>consultora independente</strong> e extensão operacional de quem me contrata.
           Minha atuação envolve:
         </p>
-        <ul className="gold-list">
+        <GoldList>
           {[
             ["Diagnóstico", "ouvir, mapear e identificar onde o negócio ou a agenda do líder está travando."],
             ["Articulação", "gerenciar parceiros, fornecedores e especialistas para cada demanda."],
@@ -63,14 +72,11 @@ export const ABOUT_TOPICS = [
             ["Gestão de documentos e prazos", "organização, conferência e acompanhamento até a entrega final."],
             ["Comunicação contínua", "relatórios periódicos e clareza em cada etapa do processo."],
           ].map(([title, text]) => (
-            <li key={title}>
-              <span className="mark">—</span>
-              <span>
-                <strong>{title}</strong>: {text}
-              </span>
-            </li>
+            <GoldListItem key={title}>
+              <strong>{title}</strong>: {text}
+            </GoldListItem>
           ))}
-        </ul>
+        </GoldList>
         <p>
           Cada cliente recebe um <em>blueprint</em> próprio: um plano desenhado para a sua realidade, com prazos,
           responsabilidades e resultados esperados definidos desde o início.
@@ -80,11 +86,15 @@ export const ABOUT_TOPICS = [
   },
   {
     slug: "visao-e-valores",
-    number: "03",
     title: "Visão e Valores",
     summary: "Os princípios que norteiam cada atendimento.",
     icon: (
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 3l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 15.3l-4.8 2.6.9-5.4L4.2 8.7l5.4-.8L12 3Z" />
+      // Bússola: os princípios que norteiam.
+      <>
+        <circle cx="12" cy="12" r="9" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15.5 8.5 13 13l-4.5 2.5L11 11Z" />
+        <path strokeLinecap="round" d="M12 3v1.5M12 19.5V21M3 12h1.5M19.5 12H21" />
+      </>
     ),
     content: (
       <>
@@ -92,7 +102,7 @@ export const ABOUT_TOPICS = [
           <strong>Visão:</strong> ser referência em concierge empresarial no Brasil, reconhecida pela capacidade de
           eleger situações complexas e transformá-las em trajetórias elegantes, eficientes e humanas.
         </p>
-        <ul className="value-list">
+        <GoldList>
           {[
             [
               "Discrição & Confidencialidade",
@@ -108,28 +118,20 @@ export const ABOUT_TOPICS = [
               "não existem soluções de prateleira: cada plano nasce do contexto real de cada cliente.",
             ],
           ].map(([title, text]) => (
-            <li key={title}>
-              <span className="value-dot" />
-              <span>
-                <strong>{title}</strong> — {text}
-              </span>
-            </li>
+            <GoldListItem key={title}>
+              <strong>{title}</strong> — {text}
+            </GoldListItem>
           ))}
-          <li>
-            <span className="value-dot fire" />
-            <span>
-              <strong style={{ color: "var(--orange)" }}>Renascimento</strong> — como a fênix, cada crise é tratada
-              como oportunidade de recomeço mais forte e mais consciente.
-            </span>
-          </li>
-        </ul>
+          <GoldListItem>
+            <strong className="value-fire">Renascimento</strong> — como a fênix, cada crise é tratada como
+            oportunidade de recomeço mais forte e mais consciente.
+          </GoldListItem>
+        </GoldList>
       </>
     ),
   },
 ] as const satisfies readonly AboutTopic[];
 
-export type AboutTopicSlug = (typeof ABOUT_TOPICS)[number]["slug"];
-
-export function getAboutTopic(slug: AboutTopicSlug): AboutTopic {
-  return ABOUT_TOPICS.find((t) => t.slug === slug)!;
+export function findAboutTopic(slug: string): AboutTopic | undefined {
+  return ABOUT_TOPICS.find((t) => t.slug === slug);
 }

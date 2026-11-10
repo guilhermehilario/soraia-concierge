@@ -1,11 +1,8 @@
 export type Service = {
   slug: string;
-  number: string;
   title: string;
-  detailTitle: string;
   summary: string;
   icon: React.ReactNode;
-  detailIcon: React.ReactNode;
   definition: React.ReactNode;
   included: readonly string[];
   documents: readonly string[];
@@ -15,18 +12,17 @@ export type Service = {
 export const SERVICES = [
   {
     slug: "estruturacao-empresarial",
-    number: "01",
     title: "Estruturação Empresarial",
-    detailTitle: "Estruturação Empresarial",
     summary: "Organização de processos, papéis e rotinas para empresas que precisam de ordem e escala.",
     icon: (
+      // Organograma: papéis e estrutura.
       <>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 10h18M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Zm4 5h.01M11 11h6" />
-        <circle cx="8" cy="14" r="1" />
+        <rect x="9" y="3" width="6" height="4.5" rx="1" />
+        <rect x="2.5" y="16.5" width="5" height="4.5" rx="1" />
+        <rect x="9.5" y="16.5" width="5" height="4.5" rx="1" />
+        <rect x="16.5" y="16.5" width="5" height="4.5" rx="1" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 7.5v9M5 16.5V12h14v4.5" />
       </>
-    ),
-    detailIcon: (
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3 10h18M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Z" />
     ),
     definition: (
       <>
@@ -58,15 +54,14 @@ export const SERVICES = [
   },
   {
     slug: "projetos-personalizados",
-    number: "02",
     title: "Projetos Personalizados",
-    detailTitle: "Projetos Personalizados",
     summary: "Planejamento e condução ponta a ponta de projetos sob medida para a sua necessidade.",
     icon: (
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9 11l3 3L22 4m-4 11v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h11" />
-    ),
-    detailIcon: (
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9 11l3 3L22 4m-4 11v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h11" />
+      // Compasso de desenho: projeto feito sob medida.
+      <>
+        <circle cx="12" cy="4.5" r="1.75" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M11.2 6.1 6 20.5M12.8 6.1 18 20.5M8.3 14.2c2.3 1.2 5.1 1.2 7.4 0" />
+      </>
     ),
     definition: (
       <>
@@ -99,14 +94,16 @@ export const SERVICES = [
   },
   {
     slug: "requisicoes-medicas",
-    number: "03",
     title: "Requisições Médicas",
-    detailTitle: "Requisições Médicas",
     summary: "Apoio administrativo e de agendamento em jornadas de saúde, com total sigilo.",
     icon: (
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v14m-7-7h14M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z" opacity=".9" />
+      // Prancheta com cruz: pedidos, exames e laudos organizados.
+      <>
+        <rect x="5" y="4.5" width="14" height="17" rx="2" />
+        <rect x="9" y="2.5" width="6" height="3.5" rx="1" />
+        <path strokeLinecap="round" d="M12 10.5v6M9 13.5h6" />
+      </>
     ),
-    detailIcon: <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v14m-7-7h14" />,
     definition: (
       <>
         Uma jornada de saúde envolve dezenas de detalhes administrativos que desviam a energia de quem deveria estar
@@ -140,18 +137,15 @@ export const SERVICES = [
   },
   {
     slug: "desenvolvimento-de-lideres",
-    number: "04",
     title: "Desenvolvimento Empresarial para Líderes e Gestores",
-    detailTitle: "Desenvolvimento Empresarial para Líderes e Gestores",
     summary: "Trilhas de evolução para quem lidera pessoas e resultados.",
     icon: (
-      <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0Zm-4 7c-4.4 0-8 2.7-8 6v1h16v-1c0-3.3-3.6-6-8-6Zm7-6.5 1.5 1.5L23 6.5" />
-    ),
-    detailIcon: (
-      <>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0ZM4 21c0-3.3 3.6-6 8-6s8 2.7 8 6" />
-        <path strokeLinecap="round" d="M19.5 4.5 21 3l1 1.5L19.5 7 18 6l1.5-1.5Z" />
-      </>
+      // Degraus com bandeira: trilha de evolução do líder.
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3 20.5h5V16h5v-4.5h5V7h3M18 7V2.5l3.5 1.4L18 5.3"
+      />
     ),
     definition: (
       <>
@@ -184,8 +178,6 @@ export const SERVICES = [
   },
 ] as const satisfies readonly Service[];
 
-export type ServiceSlug = (typeof SERVICES)[number]["slug"];
-
-export function getService(slug: ServiceSlug): Service {
-  return SERVICES.find((s) => s.slug === slug)!;
+export function findService(slug: string): Service | undefined {
+  return SERVICES.find((s) => s.slug === slug);
 }
