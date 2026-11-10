@@ -6,7 +6,7 @@ export type Servico = {
   resumo: string;
   icone: React.ReactNode;
   iconeDetalhe: React.ReactNode;
-  sobre: React.ReactNode;
+  definicao: React.ReactNode;
   incluido: readonly string[];
   documentos: readonly string[];
   orientacoes: React.ReactNode;
@@ -28,7 +28,7 @@ export const SERVICOS = [
     iconeDetalhe: (
       <path strokeLinecap="round" strokeLinejoin="round" d="M3 10h18M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Z" />
     ),
-    sobre: (
+    definicao: (
       <>
         Destinado a empresas em início de operação, expansão ou reorganização, este serviço cria{" "}
         <strong>ordem e clareza</strong>: redesenhamos processos, papéis e rotinas para que a estrutura suporte o
@@ -68,7 +68,7 @@ export const SERVICOS = [
     iconeDetalhe: (
       <path strokeLinecap="round" strokeLinejoin="round" d="M9 11l3 3L22 4m-4 11v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h11" />
     ),
-    sobre: (
+    definicao: (
       <>
         Quando a necessidade não cabe em uma prateleira, desenhamos o projeto do zero:{" "}
         <strong>do objetivo ao resultado</strong>. De eventos e lançamentos a mudanças de sede, reestruturações de marca
@@ -107,7 +107,7 @@ export const SERVICOS = [
       <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v14m-7-7h14M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z" opacity=".9" />
     ),
     iconeDetalhe: <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v14m-7-7h14" />,
-    sobre: (
+    definicao: (
       <>
         Uma jornada de saúde envolve dezenas de detalhes administrativos que desviam a energia de quem deveria estar
         focado em se cuidar. Este serviço oferece <strong>gestão completa da parte burocrática e logística</strong> —
@@ -141,8 +141,8 @@ export const SERVICOS = [
   {
     slug: "desenvolvimento-de-lideres",
     numero: "04",
-    titulo: "Desenvolvimento para Líderes e Gestores",
-    tituloDetalhe: "Desenvolvimento empresarial para líderes e gestores",
+    titulo: "Desenvolvimento Empresarial para Líderes e Gestores",
+    tituloDetalhe: "Desenvolvimento Empresarial para Líderes e Gestores",
     resumo: "Trilhas de evolução para quem lidera pessoas e resultados.",
     icone: (
       <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0Zm-4 7c-4.4 0-8 2.7-8 6v1h16v-1c0-3.3-3.6-6-8-6Zm7-6.5 1.5 1.5L23 6.5" />
@@ -153,7 +153,7 @@ export const SERVICOS = [
         <path strokeLinecap="round" d="M19.5 4.5 21 3l1 1.5L19.5 7 18 6l1.5-1.5Z" />
       </>
     ),
-    sobre: (
+    definicao: (
       <>
         Liderar é um papel que exige evolução constante. Este serviço acompanha{" "}
         <strong>líderes, gestores e fundadores</strong> em um processo estruturado de crescimento pessoal e

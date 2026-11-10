@@ -55,7 +55,7 @@ export function TopicoSobreDetalhe({ topico }: { topico: TopicoSobre }) {
   return (
     <div className="page-shell narrow">
       <Link href="/sobre" className="back-link">
-        ← Voltar
+        ← Voltar à página Conheça a Concierge
       </Link>
 
       <div className="content-card" style={{ marginTop: "2rem" }}>
@@ -73,6 +73,8 @@ export function TopicoSobreDetalhe({ topico }: { topico: TopicoSobre }) {
 }
 
 export function ServicoDetalhe({ servico }: { servico: Servico }) {
+  const temDocumentos = servico.documentos.length > 0;
+
   return (
     <div className="page-shell narrow">
       <Link href="/atuacao" className="back-link">
@@ -88,8 +90,8 @@ export function ServicoDetalhe({ servico }: { servico: Servico }) {
       <div className="gold-rule left detail-rule" />
 
       <div className="content-card">
-        <h3>1 · Sobre este serviço</h3>
-        <p>{servico.sobre}</p>
+        <h3>1 · Definição</h3>
+        <p>{servico.definicao}</p>
       </div>
 
       <div className="content-card">
@@ -104,17 +106,22 @@ export function ServicoDetalhe({ servico }: { servico: Servico }) {
         </ul>
       </div>
 
-      <div className="content-card">
-        <h3>3 · Documentação necessária</h3>
-        <ul className="bullet-list">
-          {servico.documentos.map((item) => (
-            <li key={item}>• {item}</li>
-          ))}
-        </ul>
-      </div>
+      {temDocumentos && (
+        <div className="content-card">
+          <h3>3 · Documentos necessários</h3>
+          <ul className="gold-list">
+            {servico.documentos.map((item) => (
+              <li key={item}>
+                <span className="mark">›</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       <div className="content-card">
-        <h3>4 · Orientações</h3>
+        <h3>{temDocumentos ? 4 : 3} · Orientações</h3>
         <p>{servico.orientacoes}</p>
       </div>
 

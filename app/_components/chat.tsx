@@ -16,8 +16,18 @@ const FAQ: { q: string; a: React.ReactNode }[] = [
     a: (
       <>
         Atuamos em 4 frentes: <G>Estruturação Empresarial</G>, <G>Projetos Personalizados</G>,{" "}
-        <G>Requisições Médicas</G> e <G>Desenvolvimento para Líderes e Gestores</G>. Você pode explorar cada uma em
-        “SERVIÇOS” no menu. Qual delas desperta o seu interesse?
+        <G>Requisições Médicas</G> e <G>Desenvolvimento Empresarial para Líderes e Gestores</G>. Você pode explorar
+        cada uma em “SERVIÇOS” no menu. Qual delas desperta o seu interesse?
+      </>
+    ),
+  },
+  {
+    q: "Entender um serviço",
+    a: (
+      <>
+        Claro! Posso apresentar a <G>finalidade</G>, as <G>etapas</G> e os <G>documentos necessários</G>, quando
+        aplicável. Cada serviço tem uma página própria em “SERVIÇOS”, organizada em Definição, O que está incluído,
+        Documentos necessários e Orientações. Sobre qual deles você quer saber?
       </>
     ),
   },
@@ -33,7 +43,7 @@ const FAQ: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "Documentos",
-    a: "Dependem do serviço escolhido: contratos sociais e organograma (estruturação), descrição da demanda (projetos), pedidos e laudos médicos (requisições médicas) ou avaliações e metas (desenvolvimento de líderes). Cada página de serviço traz a lista completa em “Documentação Necessária”.",
+    a: "Dependem do serviço escolhido: contratos sociais e organograma (estruturação), descrição da demanda (projetos), pedidos e laudos médicos (requisições médicas) ou avaliações e metas (desenvolvimento de líderes). Cada página de serviço traz a lista completa em “Documentos necessários”.",
   },
   {
     q: "Falar com a equipe",
@@ -55,10 +65,11 @@ const FALLBACK = (
 
 function findAnswer(text: string) {
   const t = text.toLowerCase();
+  if (/(entender|explica|etapa|finalidade|como funciona)/.test(t)) return FAQ[1].a;
   if (/(área|area|atua|servi[cç]o|projeto|fazem|faz o que)/.test(t)) return FAQ[0].a;
-  if (/(soraia|quem|sobre|concierge)/.test(t)) return FAQ[1].a;
-  if (/(documento|papel|contrato|laudo|exame)/.test(t)) return FAQ[2].a;
-  if (/(contato|falar|whats|telefone|e-?mail|or[cç]amento|valor|pre[cç]o)/.test(t)) return FAQ[3].a;
+  if (/(soraia|quem|sobre|concierge)/.test(t)) return FAQ[2].a;
+  if (/(documento|papel|contrato|laudo|exame)/.test(t)) return FAQ[3].a;
+  if (/(contato|falar|whats|telefone|e-?mail|or[cç]amento|valor|pre[cç]o)/.test(t)) return FAQ[4].a;
   return FALLBACK;
 }
 
