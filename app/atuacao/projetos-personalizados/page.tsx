@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { ServicoDetalhe } from "../../_components/page-parts";
-import { getServico } from "../../_content/servicos";
+import { ServiceDetail } from "../../_components/page-parts";
+import { getService } from "../../_content/services";
 
-const servico = getServico("projetos-personalizados");
+const service = getService("projetos-personalizados");
 
-export const metadata: Metadata = { title: servico.titulo };
+export const metadata: Metadata = { title: service.title };
 
 export default function Page() {
-  return <ServicoDetalhe servico={servico} />;
+  return <ServiceDetail service={service} />;
 }

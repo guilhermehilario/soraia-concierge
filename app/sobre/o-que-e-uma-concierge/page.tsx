@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { TopicoSobreDetalhe } from "../../_components/page-parts";
-import { getTopicoSobre } from "../../_content/sobre";
+import { AboutTopicDetail } from "../../_components/page-parts";
+import { getAboutTopic } from "../../_content/about";
 
-const topico = getTopicoSobre("o-que-e-uma-concierge");
+const topic = getAboutTopic("o-que-e-uma-concierge");
 
-export const metadata: Metadata = { title: topico.titulo };
+export const metadata: Metadata = { title: topic.title };
 
 export default function Page() {
-  return <TopicoSobreDetalhe topico={topico} />;
+  return <AboutTopicDetail topic={topic} />;
 }

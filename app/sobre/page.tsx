@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
 import { PageIntro, PanelCard } from "../_components/page-parts";
-import { TOPICOS_SOBRE } from "../_content/sobre";
+import { ABOUT_TOPICS } from "../_content/about";
 
 export const metadata: Metadata = { title: "Conheça a Concierge" };
 
-export default function SobrePage() {
+export default function AboutPage() {
   return (
     <div className="page-shell">
       <PageIntro title="Conheça a Concierge" subtitle="Escolha um tema para saber mais." />
 
       <div className="card-grid cols-3">
-        {TOPICOS_SOBRE.map((topico) => (
+        {ABOUT_TOPICS.map((topic) => (
           <PanelCard
-            key={topico.slug}
-            href={`/sobre/${topico.slug}`}
-            icone={topico.icone}
-            titulo={topico.titulo}
-            texto={topico.resumo}
+            key={topic.slug}
+            href={`/sobre/${topic.slug}`}
+            icon={topic.icon}
+            title={topic.title}
+            text={topic.summary}
             cta="Explorar"
           />
         ))}

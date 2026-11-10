@@ -60,9 +60,9 @@ export function Header() {
           aria-controls="mobileMenu"
           onClick={() => setMenuOpen((open) => !open)}
         >
-          <span className="textura-dourado" />
-          <span className="textura-dourado" />
-          <span className="textura-dourado" />
+          <span className="gold-texture" />
+          <span className="gold-texture" />
+          <span className="gold-texture" />
         </button>
       </div>
 

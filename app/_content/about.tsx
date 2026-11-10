@@ -1,22 +1,22 @@
-export type TopicoSobre = {
+export type AboutTopic = {
   slug: string;
-  numero: string;
-  titulo: string;
-  resumo: string;
-  icone: React.ReactNode;
-  conteudo: React.ReactNode;
+  number: string;
+  title: string;
+  summary: string;
+  icon: React.ReactNode;
+  content: React.ReactNode;
 };
 
-export const TOPICOS_SOBRE = [
+export const ABOUT_TOPICS = [
   {
     slug: "o-que-e-uma-concierge",
-    numero: "01",
-    titulo: "O que é uma Concierge?",
-    resumo: "Entenda a origem e a essência dessa profissão de alto nível.",
-    icone: (
+    number: "01",
+    title: "O que é uma Concierge?",
+    summary: "Entenda a origem e a essência dessa profissão de alto nível.",
+    icon: (
       <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11Zm0 2.5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0-7.5 1.2 2.8L12 5 10.8 4.3 12 1.5Z" />
     ),
-    conteudo: (
+    content: (
       <>
         <p>
           A palavra <em>concierge</em> nasceu na tradição dos grandes hotéis e palácios europeus: era a pessoa que
@@ -40,13 +40,13 @@ export const TOPICOS_SOBRE = [
   },
   {
     slug: "o-que-eu-faco",
-    numero: "02",
-    titulo: "O que eu faço?",
-    resumo: "A atuação prática e o dia a dia da sua Concierge.",
-    icone: (
+    number: "02",
+    title: "O que eu faço?",
+    summary: "A atuação prática e o dia a dia da sua Concierge.",
+    icon: (
       <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h8m-8 4h5m5-13H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7l-4-4Zm0 0v4h4" />
     ),
-    conteudo: (
+    content: (
       <>
         <p>
           Na prática, atuo como <strong>consultora independente</strong> e extensão operacional de quem me contrata.
@@ -62,11 +62,11 @@ export const TOPICOS_SOBRE = [
             ],
             ["Gestão de documentos e prazos", "organização, conferência e acompanhamento até a entrega final."],
             ["Comunicação contínua", "relatórios periódicos e clareza em cada etapa do processo."],
-          ].map(([titulo, texto]) => (
-            <li key={titulo}>
+          ].map(([title, text]) => (
+            <li key={title}>
               <span className="mark">—</span>
               <span>
-                <strong>{titulo}</strong>: {texto}
+                <strong>{title}</strong>: {text}
               </span>
             </li>
           ))}
@@ -80,13 +80,13 @@ export const TOPICOS_SOBRE = [
   },
   {
     slug: "visao-e-valores",
-    numero: "03",
-    titulo: "Visão e Valores",
-    resumo: "Os princípios que norteiam cada atendimento.",
-    icone: (
+    number: "03",
+    title: "Visão e Valores",
+    summary: "Os princípios que norteiam cada atendimento.",
+    icon: (
       <path strokeLinecap="round" strokeLinejoin="round" d="M12 3l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 15.3l-4.8 2.6.9-5.4L4.2 8.7l5.4-.8L12 3Z" />
     ),
-    conteudo: (
+    content: (
       <>
         <p>
           <strong>Visão:</strong> ser referência em concierge empresarial no Brasil, reconhecida pela capacidade de
@@ -107,18 +107,18 @@ export const TOPICOS_SOBRE = [
               "Personalização",
               "não existem soluções de prateleira: cada plano nasce do contexto real de cada cliente.",
             ],
-          ].map(([titulo, texto]) => (
-            <li key={titulo}>
+          ].map(([title, text]) => (
+            <li key={title}>
               <span className="value-dot" />
               <span>
-                <strong>{titulo}</strong> — {texto}
+                <strong>{title}</strong> — {text}
               </span>
             </li>
           ))}
           <li>
             <span className="value-dot fire" />
             <span>
-              <strong style={{ color: "var(--laranja)" }}>Renascimento</strong> — como a fênix, cada crise é tratada
+              <strong style={{ color: "var(--orange)" }}>Renascimento</strong> — como a fênix, cada crise é tratada
               como oportunidade de recomeço mais forte e mais consciente.
             </span>
           </li>
@@ -126,10 +126,10 @@ export const TOPICOS_SOBRE = [
       </>
     ),
   },
-] as const satisfies readonly TopicoSobre[];
+] as const satisfies readonly AboutTopic[];
 
-export type TopicoSobreSlug = (typeof TOPICOS_SOBRE)[number]["slug"];
+export type AboutTopicSlug = (typeof ABOUT_TOPICS)[number]["slug"];
 
-export function getTopicoSobre(slug: TopicoSobreSlug): TopicoSobre {
-  return TOPICOS_SOBRE.find((t) => t.slug === slug)!;
+export function getAboutTopic(slug: AboutTopicSlug): AboutTopic {
+  return ABOUT_TOPICS.find((t) => t.slug === slug)!;
 }

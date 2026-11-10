@@ -1,6 +1,6 @@
 import Link from "next/link";
-import type { Servico } from "../_content/servicos";
-import type { TopicoSobre } from "../_content/sobre";
+import type { Service } from "../_content/services";
+import type { AboutTopic } from "../_content/about";
 import { ContactButton } from "./contact";
 
 export function PageIntro({ title, subtitle }: { title: string; subtitle: string }) {
@@ -19,30 +19,30 @@ export function PageIntro({ title, subtitle }: { title: string; subtitle: string
 
 export function PanelCard({
   href,
-  numero,
-  icone,
-  titulo,
-  texto,
+  number,
+  icon,
+  title,
+  text,
   cta,
 }: {
   href: string;
-  numero?: string;
-  icone: React.ReactNode;
-  titulo: string;
-  texto: string;
+  number?: string;
+  icon: React.ReactNode;
+  title: string;
+  text: string;
   cta: string;
 }) {
   return (
     <Link href={href} className="panel-card">
       <div className="card-art">
-        {numero && <span className="card-number">{numero}</span>}
+        {number && <span className="card-number">{number}</span>}
         <svg className="card-icon" viewBox="0 0 24 24" aria-hidden="true">
-          {icone}
+          {icon}
         </svg>
       </div>
       <div className="card-body">
-        <h3 className="card-title">{titulo}</h3>
-        <p className="card-text">{texto}</p>
+        <h3 className="card-title">{title}</h3>
+        <p className="card-text">{text}</p>
         <span className="card-cta">
           {cta} <span className="arrow">→</span>
         </span>
@@ -51,7 +51,7 @@ export function PanelCard({
   );
 }
 
-export function TopicoSobreDetalhe({ topico }: { topico: TopicoSobre }) {
+export function AboutTopicDetail({ topic }: { topic: AboutTopic }) {
   return (
     <div className="page-shell narrow">
       <Link href="/sobre" className="back-link">
@@ -60,20 +60,20 @@ export function TopicoSobreDetalhe({ topico }: { topico: TopicoSobre }) {
 
       <div className="content-card" style={{ marginTop: "2rem" }}>
         <p className="eyebrow" style={{ marginTop: 0 }}>
-          Conheça a Concierge · {topico.numero}
+          Conheça a Concierge · {topic.number}
         </p>
         <h2 className="detail-title gold-text" style={{ marginTop: "0.6rem" }}>
-          {topico.titulo}
+          {topic.title}
         </h2>
         <div className="gold-rule left detail-rule" />
-        {topico.conteudo}
+        {topic.content}
       </div>
     </div>
   );
 }
 
-export function ServicoDetalhe({ servico }: { servico: Servico }) {
-  const temDocumentos = servico.documentos.length > 0;
+export function ServiceDetail({ service }: { service: Service }) {
+  const hasDocuments = service.documents.length > 0;
 
   return (
     <div className="page-shell narrow">
@@ -81,23 +81,23 @@ export function ServicoDetalhe({ servico }: { servico: Servico }) {
         ← Voltar às áreas de atuação
       </Link>
       <div className="detail-banner">
-        <span className="banner-label">Serviço {servico.numero}</span>
+        <span className="banner-label">Serviço {service.number}</span>
         <svg className="card-icon" viewBox="0 0 24 24" aria-hidden="true">
-          {servico.iconeDetalhe}
+          {service.detailIcon}
         </svg>
       </div>
-      <h2 className="detail-title gold-text">{servico.tituloDetalhe}</h2>
+      <h2 className="detail-title gold-text">{service.detailTitle}</h2>
       <div className="gold-rule left detail-rule" />
 
       <div className="content-card">
         <h3>1 · Definição</h3>
-        <p>{servico.definicao}</p>
+        <p>{service.definition}</p>
       </div>
 
       <div className="content-card">
         <h3>2 · O que está incluído</h3>
         <ul className="gold-list">
-          {servico.incluido.map((item) => (
+          {service.included.map((item) => (
             <li key={item}>
               <span className="mark">›</span>
               <span>{item}</span>
@@ -106,11 +106,11 @@ export function ServicoDetalhe({ servico }: { servico: Servico }) {
         </ul>
       </div>
 
-      {temDocumentos && (
+      {hasDocuments && (
         <div className="content-card">
           <h3>3 · Documentos necessários</h3>
           <ul className="gold-list">
-            {servico.documentos.map((item) => (
+            {service.documents.map((item) => (
               <li key={item}>
                 <span className="mark">›</span>
                 <span>{item}</span>
@@ -121,8 +121,8 @@ export function ServicoDetalhe({ servico }: { servico: Servico }) {
       )}
 
       <div className="content-card">
-        <h3>{temDocumentos ? 4 : 3} · Orientações</h3>
-        <p>{servico.orientacoes}</p>
+        <h3>{hasDocuments ? 4 : 3} · Orientações</h3>
+        <p>{service.guidelines}</p>
       </div>
 
       <div className="btn-row">

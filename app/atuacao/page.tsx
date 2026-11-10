@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
 import { PageIntro, PanelCard } from "../_components/page-parts";
-import { SERVICOS } from "../_content/servicos";
+import { SERVICES } from "../_content/services";
 
 export const metadata: Metadata = { title: "Atuação estratégica e projetos" };
 
-export default function AtuacaoPage() {
+export default function ServicesPage() {
   return (
     <div className="page-shell">
       <PageIntro title="Atuação estratégica e projetos" subtitle="Conheça nossas áreas de atuação." />
 
       <div className="card-grid cols-2">
-        {SERVICOS.map((servico) => (
+        {SERVICES.map((service) => (
           <PanelCard
-            key={servico.slug}
-            href={`/atuacao/${servico.slug}`}
-            numero={servico.numero}
-            icone={servico.icone}
-            titulo={servico.titulo}
-            texto={servico.resumo}
+            key={service.slug}
+            href={`/atuacao/${service.slug}`}
+            number={service.number}
+            icon={service.icon}
+            title={service.title}
+            text={service.summary}
             cta="Saiba mais"
           />
         ))}

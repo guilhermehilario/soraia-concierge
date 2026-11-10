@@ -32,20 +32,20 @@ export default function Home() {
                 Concierge Empresarial
               </span>
             </h1>
-            <span aria-hidden="true" className="textura-dourado mt-7 block h-px w-24 lg:mt-9" />
+            <span aria-hidden="true" className="gold-texture mt-7 block h-px w-24 lg:mt-9" />
             <p className="mt-7 text-[0.85rem] font-light italic leading-relaxed text-white/70 lg:mt-9 lg:text-base">
               Projetos que impulsionam
               <br />o seu próximo nível.
             </p>
             <Link
               href="/sobre"
-              className="group relative mt-8 inline-flex h-[50px] min-w-[200px] items-center justify-center rounded-lg px-8 outline-none focus-visible:ring-1 focus-visible:ring-dourado-claro lg:mt-10"
+              className="group relative mt-8 inline-flex h-[50px] min-w-[200px] items-center justify-center rounded-lg px-8 outline-none focus-visible:ring-1 focus-visible:ring-gold-light lg:mt-10"
             >
               <span
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0"
                 style={{
-                  background: "radial-gradient(15% 50% at 50% 100%, var(--color-dourado-claro) 0%, transparent 100%)",
+                  background: "radial-gradient(15% 50% at 50% 100%, var(--color-gold-light) 0%, transparent 100%)",
                   filter: "blur(15px)",
                 }}
               />
@@ -53,38 +53,38 @@ export default function Home() {
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0"
                 style={{
-                  background: "radial-gradient(10.7% 50% at 50% 100%, var(--color-dourado-claro) 0%, transparent 100%)",
+                  background: "radial-gradient(10.7% 50% at 50% 100%, var(--color-gold-light) 0%, transparent 100%)",
                 }}
               />
-              <span aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden rounded-lg bg-dourado/25">
+              <span aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden rounded-lg bg-gold/25">
                 <span
                   className="absolute -inset-[300%] animate-[spin_4s_linear_infinite]"
                   style={{
                     background:
-                      "conic-gradient(from 90deg at 50% 50%, transparent 0%, transparent 70%, var(--color-laranja) 90%, var(--color-dourado-claro) 100%)",
+                      "conic-gradient(from 90deg at 50% 50%, transparent 0%, transparent 70%, var(--color-orange) 90%, var(--color-gold-light) 100%)",
                   }}
                 />
               </span>
-              <span aria-hidden="true" className="pointer-events-none absolute inset-px rounded-[7px] bg-noite" />
+              <span aria-hidden="true" className="pointer-events-none absolute inset-px rounded-[7px] bg-night" />
               <span
                 aria-hidden="true"
-                className="textura-dourado pointer-events-none absolute inset-px rounded-[7px] transition-[clip-path] duration-700 ease-in-out [clip-path:polygon(60%_0,60%_0,40%_100%,40%_100%)] group-hover:[clip-path:polygon(0_0,140%_0,100%_100%,-40%_100%)]"
+                className="gold-texture pointer-events-none absolute inset-px rounded-[7px] transition-[clip-path] duration-700 ease-in-out [clip-path:polygon(60%_0,60%_0,40%_100%,40%_100%)] group-hover:[clip-path:polygon(0_0,140%_0,100%_100%,-40%_100%)]"
               />
               <span className="relative z-10 flex items-center gap-4 text-[11px] font-light uppercase tracking-[0.3em]">
                 <span className="relative inline-grid">
-                  <span className="texto-dourado transition-opacity duration-500 ease-out group-hover:opacity-0">
+                  <span className="gold-gradient-text transition-opacity duration-500 ease-out group-hover:opacity-0">
                     Saiba mais
                   </span>
                   <span
                     aria-hidden="true"
-                    className="absolute inset-0 text-noite-profundo opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"
+                    className="absolute inset-0 text-night-deep opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"
                   >
                     Saiba mais
                   </span>
                 </span>
                 <svg
                   aria-hidden="true"
-                  className="h-4 w-4 text-dourado-claro transition-colors duration-500 ease-out group-hover:animate-seta-pulo group-hover:text-noite-profundo"
+                  className="h-4 w-4 text-gold-light transition-colors duration-500 ease-out group-hover:animate-arrow-bounce group-hover:text-night-deep"
                   fill="none"
                   stroke="currentColor"
                   strokeLinecap="round"
