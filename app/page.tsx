@@ -1,69 +1,129 @@
 import Image from "next/image";
+import Link from "next/link";
+
+const QUICK_LINKS = [
+  { href: "/sobre", title: "Conheça a Concierge", sub: "Quem está por trás da marca" },
+  { href: "/atuacao", title: "Atuação e Projetos", sub: "Áreas estratégicas de serviço" },
+  { href: "/parcerias", title: "Parcerias", sub: "Conexões profissionais" },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <div className="relative min-h-svh overflow-hidden bg-[#060f22] text-white lg:min-h-[max(100svh,min(66.67vw,120svh))]">
+        <div className="absolute inset-x-0 top-0 h-[64svh] [mask-image:linear-gradient(to_bottom,black_70%,transparent)] lg:inset-y-0 lg:flex lg:h-auto lg:justify-end lg:[mask-image:none]">
+          <Image
+            src="/images/hero-fenix.jpg"
+            alt=""
+            width={3072}
+            height={2048}
+            preload
+            sizes="100vw"
+            className="h-full w-full object-cover object-[74%_center] lg:w-[max(100%,150svh)] lg:shrink-0 lg:object-[center_45%] [@media(min-width:1024px)_and_(min-aspect-ratio:3/2)]:[mask-image:linear-gradient(to_right,transparent,black_14%)]"
+          />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <section className="relative z-10 flex min-h-svh items-end justify-center px-6 pb-14 pt-[50svh] lg:items-center lg:justify-end lg:p-0">
+          <div className="flex w-full justify-center lg:w-[max(100%,150svh)] lg:justify-start lg:py-32 lg:pl-[12%]">
+            <div className="flex w-[88%] max-w-[28rem] flex-col items-center text-center">
+              <h1 className="w-[78%] sm:w-full">
+                <Image
+                  src="/images/logo-soraia.png"
+                  alt="Soraia"
+                  width={2014}
+                  height={455}
+                  preload
+                  className="mx-auto h-auto w-full"
+                />
+                <span className="mt-3.5 block text-[clamp(0.55rem,2.35vw,0.75rem)] font-light uppercase tracking-[0.34em] sm:text-[clamp(0.7rem,3vw,0.95rem)] lg:text-[clamp(0.85rem,1.4vw,1.25rem)]">
+                  Concierge Empresarial
+                </span>
+              </h1>
+              <span aria-hidden="true" className="textura-dourado mt-7 block h-px w-24 lg:mt-9" />
+              <p className="mt-7 text-[0.85rem] font-light italic leading-relaxed text-white/70 lg:mt-9 lg:text-base">
+                Projetos que impulsionam
+                <br />o seu próximo nível.
+              </p>
+              <Link
+                href="/sobre"
+                className="group relative mt-8 inline-flex h-[50px] min-w-[200px] items-center justify-center rounded-lg px-8 outline-none focus-visible:ring-1 focus-visible:ring-dourado-claro lg:mt-10"
+              >
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0"
+                  style={{
+                    background: "radial-gradient(15% 50% at 50% 100%, var(--color-dourado-claro) 0%, transparent 100%)",
+                    filter: "blur(15px)",
+                  }}
+                />
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0"
+                  style={{
+                    background: "radial-gradient(10.7% 50% at 50% 100%, var(--color-dourado-claro) 0%, transparent 100%)",
+                  }}
+                />
+                <span aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden rounded-lg bg-dourado/25">
+                  <span
+                    className="absolute -inset-[300%] animate-[spin_4s_linear_infinite]"
+                    style={{
+                      background:
+                        "conic-gradient(from 90deg at 50% 50%, transparent 0%, transparent 70%, var(--color-laranja) 90%, var(--color-dourado-claro) 100%)",
+                    }}
+                  />
+                </span>
+                <span aria-hidden="true" className="pointer-events-none absolute inset-px rounded-[7px] bg-noite" />
+                <span
+                  aria-hidden="true"
+                  className="textura-dourado pointer-events-none absolute inset-px rounded-[7px] transition-[clip-path] duration-700 ease-in-out [clip-path:polygon(60%_0,60%_0,40%_100%,40%_100%)] group-hover:[clip-path:polygon(0_0,140%_0,100%_100%,-40%_100%)]"
+                />
+                <span className="relative z-10 flex items-center gap-4 text-[11px] font-light uppercase tracking-[0.3em]">
+                  <span className="relative inline-grid">
+                    <span className="texto-dourado transition-opacity duration-500 ease-out group-hover:opacity-0">
+                      Saiba mais
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="absolute inset-0 text-noite-profundo opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"
+                    >
+                      Saiba mais
+                    </span>
+                  </span>
+                  <svg
+                    aria-hidden="true"
+                    className="h-4 w-4 text-dourado-claro transition-colors duration-500 ease-out group-hover:animate-seta-pulo group-hover:text-noite-profundo"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="1.5"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </span>
+              </Link>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div className="quick-links">
+        <div className="quick-grid">
+          {QUICK_LINKS.map((link) => (
+            <Link key={link.href} className="quick-card" href={link.href}>
+              <span>
+                <span className="quick-title">{link.title}</span>
+                <span className="quick-sub">{link.sub}</span>
+              </span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12l-7.5 7.5M21 12H3" />
+              </svg>
+            </Link>
+          ))}
         </div>
-      </main>
-    </div>
+      </div>
+    </>
   );
 }
