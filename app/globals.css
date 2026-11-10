@@ -38,12 +38,21 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background:
-    radial-gradient(ellipse at 82% -12%, rgba(85, 32, 98, 0.4) 0%, transparent 55%),
-    radial-gradient(ellipse at 8% 28%, rgba(228, 102, 21, 0.08) 0%, transparent 42%),
-    var(--bg) !important;
+  background: var(--bg) !important;
   color: #fff;
   font-family: var(--font-sans);
+}
+
+/* Gradiente fixo na viewport: não rola nem se repete com o conteúdo. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 82% -12%, rgba(85, 32, 98, 0.4) 0%, transparent 55%),
+    radial-gradient(ellipse at 8% 28%, rgba(228, 102, 21, 0.08) 0%, transparent 42%);
 }
 
 ::selection { background: var(--dourado); color: var(--noite-profundo); }
@@ -508,18 +517,6 @@ body {
   box-shadow: 0 0 8px rgba(228, 102, 21, 0.8);
 }
 
-.bullet-list {
-  margin: 1.25rem 0 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 0.55rem;
-  font-size: 0.92rem;
-  font-weight: 300;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.75);
-}
-
 /* ===== Banner de detalhe ===== */
 .detail-banner {
   position: relative;
@@ -570,6 +567,17 @@ body {
 .detail-rule { width: min(14rem, 60%); margin: 1.5rem 0 2rem; }
 
 /* ===== Parcerias ===== */
+.partner-section-title {
+  margin: 0 0 1.25rem;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--laranja);
+}
+
+.partner-grid + .partner-section-title { margin-top: 3rem; }
+
 .partner-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -609,6 +617,13 @@ body {
   letter-spacing: 0.05em;
 }
 
+.partner-badge img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .partner-card.placeholder .partner-badge {
   border-style: dashed;
   font-size: 1.8rem;
@@ -621,6 +636,13 @@ body {
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--dourado-claro);
+}
+
+.partner-area {
+  margin: 0.5rem 0 0;
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .partner-desc {
