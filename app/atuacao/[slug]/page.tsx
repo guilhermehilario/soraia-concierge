@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import { ContactButton } from "../../_components/contact";
 import { GoldList, GoldListItem } from "../../_components/gold-list";
-import { PageIntro } from "../../_components/page-intro";
+import { PageIntroHeading, PageIntroTop } from "../../_components/page-intro";
 import { SERVICES, findService } from "../../_content/services";
 
 export function generateStaticParams() {
@@ -27,7 +28,8 @@ function ItemList({ items }: { items: readonly string[] }) {
   );
 }
 
-export default async function Page({ params }: PageProps<"/atuacao/[slug]">) {
+// O que depende do slug fica dentro do Suspense; o resto entra no App Shell compartilhado.
+async function ServiceDetail({ params }: Pick<PageProps<"/atuacao/[slug]">, "params">) {
   const service = findService((await params).slug);
   // Com Cache Components não há `dynamicParams = false`: slugs fora da lista caem aqui.
   if (!service) notFound();
@@ -45,13 +47,8 @@ export default async function Page({ params }: PageProps<"/atuacao/[slug]">) {
   const sections = candidates.filter((section): section is Section => Boolean(section));
 
   return (
-    <div className="page-shell">
-      <PageIntro
-        title={service.title}
-        subtitle={service.summary}
-        eyebrow="Atuação estratégica e projetos"
-        back={{ href: "/atuacao", label: "Voltar às áreas de atuação" }}
-      />
+    <>
+      <PageIntroHeading title={service.title} subtitle={service.summary} />
 
       <div className="detail-grid">
         {sections.map((section, index) => (
@@ -63,6 +60,20 @@ export default async function Page({ params }: PageProps<"/atuacao/[slug]">) {
           </div>
         ))}
       </div>
+    </>
+  );
+}
+
+export default function Page({ params }: PageProps<"/atuacao/[slug]">) {
+  return (
+    <div className="page-shell">
+      <PageIntroTop
+        eyebrow="Atuação estratégica e projetos"
+        back={{ href: "/atuacao", label: "Voltar às áreas de atuação" }}
+      />
+      <Suspense fallback={<div className="gold-rule left" />}>
+        <ServiceDetail params={params} />
+      </Suspense>
 
       <div className="btn-row">
         <ContactButton className="btn btn-gold">Falar com a Concierge</ContactButton>

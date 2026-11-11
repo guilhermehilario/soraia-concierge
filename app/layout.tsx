@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Montserrat } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import { ContactProvider } from "./_components/contact";
 import { Header } from "./_components/header";
 import { Footer } from "./_components/footer";
@@ -13,14 +13,6 @@ const montserrat = Montserrat({
   style: ["normal", "italic"],
 });
 
-// Serifada dos títulos, em diálogo com a logo.
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
-});
-
 export const metadata: Metadata = {
   title: {
     default: "Soraia | Concierge Empresarial",
@@ -31,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="pt-BR" className={`${montserrat.variable} ${cormorant.variable} h-full antialiased`}>
+    <html lang="pt-BR" className={`${montserrat.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <ContactProvider>
           <Header />
