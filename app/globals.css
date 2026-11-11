@@ -875,7 +875,7 @@ body::before {
   position: fixed;
   right: 1.25rem;
   bottom: 1.25rem;
-  z-index: 40;
+  z-index: 80;
   border: 0;
   background: transparent;
   cursor: pointer;
@@ -917,7 +917,7 @@ body::before {
   position: fixed;
   right: 1.25rem;
   bottom: 5.5rem;
-  z-index: 40;
+  z-index: 80;
   display: flex;
   width: 22rem;
   max-width: calc(100vw - 2.5rem);
